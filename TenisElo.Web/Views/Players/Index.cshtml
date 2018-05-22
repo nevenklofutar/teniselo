@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Player rating</h2>
+
+<br />
+
+<table id="players_table" class="display">
+    <thead>
+        @*
+        <tr>
+            <th>Name</th>
+            <th>Rating</th>
+        </tr>
+        *@
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        // TOST PLUGIN
+        //https://github.com/kamranahmedse/jquery-toast-plugin
+        // autocomplete plugin
+        //http://easyautocomplete.com/
+        // tables plugin
+        //https://datatables.net/
+
+        var webServer = "@TenisElo.Web.Models.Utilities.WebServerUrl";
+        var getAllPlayersURI = "/api/players";
+
+        $(document).ready(function () {
+
+            //// input autocomplete
+            //$("#players").easyAutocomplete(options);
+
+            // tables
+            $('#players_table').DataTable({
+                searching: false,
+                ajax: {
+                    url: webServer + getAllPlayersURI,
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'Elo' },
+                    { data: 'FullName' },
+                ],
+                "columnDefs": [
+                    {
+                        "render": function (data, type, row) {
+                            return '<table style="width:100%;">' +
+                                '<tr>' +
+                                '<td rowspan="2" width="50px"><img width="50px" src="http://www.tenisliga.com/Images/Players/logo.png" ></td>' +
+                                '<td colspan="3"><a href="' + webServer + '/players/details/' + row.PlayerId + '" > ' + row.FullName + '</a ></td>' +
+                                '</tr >' +
+                                '<tr>' +
+                                '<td width="300px">' + row.Email + '</td>' +
+                                '<td width="300px">' + row.Email + '</td>' +
+                                '<td>Rating: ' + row.Elo + '</td>' +
+                                '</tr>' +
+                                '</table>';
+                        },
+                        "targets": 1
+                    },
+                    { "visible": false, "targets": [0] },
+                    { "targets": 0, "orderable": false },
+                    { "targets": 1, "orderable": false }
+                ],
+                "order": [[0, "desc"]]
+
+            });
+            //$('#players_table').DataTable({
+            //    ajax: {
+            //        url: webServer + getAllPlayersURI,
+            //        dataSrc: ''
+            //    },
+            //    columns: [
+            //        { data: 'FullName' },
+            //        {
+            //            data: 'Elo',
+            //            render: $.fn.dataTable.render.number('', '.', 2, '')
+            //        }
+            //    ],
+            //    "columnDefs": [
+            //        {
+            //            "render": function (data, type, row) {
+            //                return '<a href="' + webServer + '/players/details/' + row.PlayerId + '">' + row.FullName + '</a>';
+            //            },
+            //            "targets": 0
+            //        },
+            //        //{ "visible": false, "targets": [0] }
+            //    ],
+            //    "order": [[ 1, "desc" ]]
+
+            //});
+        });
+
+        //// input autocomplete options
+        //var options = {
+        //    url: webServer + getAllPlayersURI,
+        //    getValue: "FullName",
+        //    list: {
+        //        match: {
+        //            enabled: true
+        //        }
+        //    }
+        //};
+
+    </script>
+}

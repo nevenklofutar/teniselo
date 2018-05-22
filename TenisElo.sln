@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenisElo.Entities", "TenisElo.Entities\TenisElo.Entities.csproj", "{9F8DF640-6EFD-477A-A9E1-976CA9EB7A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenisElo.Data", "TenisElo.Data\TenisElo.Data.csproj", "{309EC602-0022-4133-A28A-3A55FFB304DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenisElo.Web", "TenisElo.Web\TenisElo.Web.csproj", "{ECB095F9-18CA-4EEC-87ED-FA48D424DE10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenisElo.Repository", "TenisElo.Repository\TenisElo.Repository.csproj", "{DDD75C4E-C0DB-4F7D-83E5-52F4AC280AB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenisElo.Service", "TenisElo.Service\TenisElo.Service.csproj", "{A85EF928-C5B2-440F-8392-21A5E14098DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F8DF640-6EFD-477A-A9E1-976CA9EB7A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8DF640-6EFD-477A-A9E1-976CA9EB7A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8DF640-6EFD-477A-A9E1-976CA9EB7A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8DF640-6EFD-477A-A9E1-976CA9EB7A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309EC602-0022-4133-A28A-3A55FFB304DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309EC602-0022-4133-A28A-3A55FFB304DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309EC602-0022-4133-A28A-3A55FFB304DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309EC602-0022-4133-A28A-3A55FFB304DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB095F9-18CA-4EEC-87ED-FA48D424DE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB095F9-18CA-4EEC-87ED-FA48D424DE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB095F9-18CA-4EEC-87ED-FA48D424DE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB095F9-18CA-4EEC-87ED-FA48D424DE10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD75C4E-C0DB-4F7D-83E5-52F4AC280AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD75C4E-C0DB-4F7D-83E5-52F4AC280AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD75C4E-C0DB-4F7D-83E5-52F4AC280AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD75C4E-C0DB-4F7D-83E5-52F4AC280AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A85EF928-C5B2-440F-8392-21A5E14098DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85EF928-C5B2-440F-8392-21A5E14098DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85EF928-C5B2-440F-8392-21A5E14098DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85EF928-C5B2-440F-8392-21A5E14098DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC31CA8F-4C56-4B0F-A978-0B20D5B24475}
+	EndGlobalSection
+EndGlobal

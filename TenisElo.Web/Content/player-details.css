@@ -1,0 +1,82 @@
+﻿.details-box {
+    /*background-color: lightgray;*/
+}
+
+.name-box {
+    width: 100%;
+}
+.first-name {
+    width: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    border: 1px solid black;
+}
+.last-name {
+    width: 50%;
+    font-size: 50px;
+    font-weight: bolder;
+    color: black;
+    border: 1px solid black;
+}
+
+.player-image {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    z-index: -1;
+}
+.player-image img {
+    height: 320px;
+}
+
+.ranking-box {
+    width: 200px;
+    height: 100px;
+    border: 1px solid red;
+    margin-top: 50px;
+}
+.ranking-label-rank {
+    transform: rotate(-90deg);
+    transform-origin: left bottom 0;
+    border: 1px solid #4cff00;
+    position: relative;
+    font-size: 17px;
+    font-weight: bold;
+    left: 30px;
+    top: 65px;
+    width: 50%;
+}
+.ranking-rank {
+    border: 1px solid #4cff00;
+    position: relative;
+    font-size: 80px;
+    font-weight: bolder;
+    left: 30px;
+    top: -35px;
+    color: red;
+}
+
+.player-info-box {
+    border: 1px solid blue;
+    margin-top: 55px;
+}
+.player-info-table {
+    width: 100%;
+    background: rgba(10, 10, 10, 0.2);
+}
+.player-info-td-label {
+    width: 20%;
+    border: 1px solid yellow;
+    height: 50px;
+    text-align: right;
+    padding-right: 5px;
+    font-size: 12px;
+}
+.player-info-td-value {
+    width: 30%;
+    border: 1px solid yellow;
+    text-align: left;
+    padding-left: 5px;
+    font-size: 30px;
+}

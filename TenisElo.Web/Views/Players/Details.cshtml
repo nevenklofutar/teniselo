@@ -1,0 +1,42 @@
+﻿@model TenisElo.Entities.Model.Player
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xs-12 col-sm-12 details-box">
+    <div class="player-image">
+        <img src="http://www.tenisliga.com/Images/Players/DinoLisnjic7.jpg?v=9ad78e19-fcb1-4920-96aa-81fec2b863cc" />
+    </div>
+    <div class="name-box">
+        <div class="first-name">@Model.FirstName</div>
+        <div class="last-name">@Model.LastName </div>
+    </div>
+    <div class="ranking-box">
+        <div class="ranking-label-rank">
+            Ranking
+        </div>
+        <div class="ranking-rank">
+            1
+        </div>
+    </div>
+    <div class="player-info-box">
+        <table class="player-info-table">
+            <tbody>
+                <tr>
+                    <td class="player-info-td-label">weight</td>
+                    <td class="player-info-td-value">90kg</td>
+                    <td class="player-info-td-label">weight</td>
+                    <td class="player-info-td-value">90kg</td>
+                </tr>
+                <tr>
+                    <td class="player-info-td-label">weight</td>
+                    <td class="player-info-td-value">90kg</td>
+                    <td class="player-info-td-label">weight</td>
+                    <td class="player-info-td-value">90kg</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

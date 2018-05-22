@@ -1,0 +1,78 @@
+﻿@model List<TenisElo.Entities.Model.Player>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+
+<br />
+
+<table id="players_table" class="display">
+    <thead>
+        @*
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+        *@
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        // TOST PLUGIN
+        //https://github.com/kamranahmedse/jquery-toast-plugin
+        // autocomplete plugin
+        //http://easyautocomplete.com/
+        // tables plugin
+        //https://datatables.net/
+
+        var webServer = "@TenisElo.Web.Models.Utilities.WebServerUrl";
+        var nameSearch = "@Request.QueryString["search_players"]";
+        var getPlayersByNameURI = "/api/players/find?name=";
+
+        $(document).ready(function () {
+
+            // tables
+            $('#players_table').DataTable({
+                searching: false,
+                ajax: {
+                    url: webServer + getPlayersByNameURI + nameSearch,
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'Elo' },
+                    { data: 'FullName' },
+                ],
+                "columnDefs": [
+                    {
+                        "render": function (data, type, row) {
+                            return '<table style="width:100%;">' +
+                                '<tr>' +
+                                '<td rowspan="2" width="50px"><img width="50px" src="http://www.tenisliga.com/Images/Players/logo.png" ></td>' +
+                                '<td colspan="3"><a href="' + webServer + '/players/details/' + row.PlayerId + '" > ' + row.FullName + '</a ></td>' +
+                                '</tr >' +
+                                '<tr>' +
+                                '<td width="300px">' + row.Email + '</td>' +
+                                '<td width="300px">' + row.Email + '</td>' +
+                                '<td>Rating: ' + row.Elo + '</td>' +
+                                '</tr>' +
+                                '</table>';
+                        },
+                        "targets": 1
+                    },
+                    { "visible": false, "targets": [0] },
+                    { "targets": 0, "orderable": false },
+                    { "targets": 1, "orderable": false }
+                ],
+                "order": [[0, "desc"]]
+
+            });
+        });
+
+    </script>
+}

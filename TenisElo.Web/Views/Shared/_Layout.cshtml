@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Tenis rating</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            @using (Html.BeginForm("Search", "Players", FormMethod.Post, new { @class = "navbar-form navbar-left", id = "search_player_form" }))
+            {
+                <input id="search_players" name="search_players" type="text" class="form-control" />
+                <input id="search_players_id" name="search_players_id" type="hidden" />
+            }
+            <a class="navbar-brand" href="/Players/Index">Players</a>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Profile</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                @*<li class="active"><a href="#">Players <span class="sr-only">(current)</span></a></li>*@
+                @*<li><a href="#">Reports</a></li>*@
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+
+        // TOST PLUGIN
+        //https://github.com/kamranahmedse/jquery-toast-plugin
+        // autocomplete plugin
+        //http://easyautocomplete.com/
+        // tables plugin
+        //https://datatables.net/
+
+        var webServer = "@TenisElo.Web.Models.Utilities.WebServerUrl";
+        var getAllPlayersURI = "/api/players";
+
+        $(document).ready(function () {
+
+            // input autocomplete
+            $("#search_players").easyAutocomplete(options);
+
+            //// tables
+            //$('#players_table').DataTable({
+            //    ajax: {
+            //        url: webServer + getAllPlayersURI,
+            //        dataSrc: ''
+            //    },
+            //    columns: [
+            //        { data: 'FullName' },
+            //        {
+            //            data: 'Elo',
+            //            render: $.fn.dataTable.render.number('', '.', 2, '')
+            //        }
+            //    ],
+            //    "columnDefs": [
+            //        {
+            //            "render": function (data, type, row) {
+            //                return '<a href="' + webServer + 'players/details/' + row.PlayerId + '">' + row.FullName + '</a>';
+            //            },
+            //            "targets": 0
+            //        },
+            //        //{ "visible": false, "targets": [0] }
+            //    ],
+            //    "order": [[ 1, "desc" ]]
+
+            //});
+        });
+
+        // input autocomplete options
+        var options = {
+            url: webServer + getAllPlayersURI,
+            getValue: "FullName",
+            list: {
+                match: {
+                    enabled: true
+                },
+                onClickEvent: function () {
+                    var player_id = $("#search_players").getSelectedItemData().PlayerId;
+                    $("#search_players_id").val(player_id);
+                    $("#search_player_form").submit()
+                },
+                onKeyEnterEvent: function () {
+                    var player_id = $("#search_players").getSelectedItemData().PlayerId;
+                    $("#search_players_id").val(player_id);
+                    $("#search_player_form").submit()
+                },
+            }
+        };
+
+    </script>
+
+</body>
+</html>
